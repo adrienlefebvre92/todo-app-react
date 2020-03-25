@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Requierements
+npm is needed for this project
+
 ## Quick setup
 ```
 npm install
