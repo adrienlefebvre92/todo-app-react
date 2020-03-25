@@ -1,24 +1,84 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import TodoService from './services/todo-service';
+
+import TodoForm from './components/TodoForm';
+import Todo from './components/Todo';
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(
+    () => hydrateState(),
+    [],
+  );
+  
+  useEffect(
+    () => TodoService.set(todos),
+    [todos],
+  );
+
+  /* Hydrates state on first page load  */
+  const hydrateState = () => {
+    const initialStoredItems = TodoService.get();
+
+    setTodos(initialStoredItems
+      ? initialStoredItems
+      : [
+          {
+            text: 'Faire les courses',
+            isCompleted: false
+          },
+          {
+            text: 'Remplir l\'attestation de sortie',
+            isCompleted: false
+          },
+          {
+            text: 'Appeler Mamie',
+            isCompleted: false
+          },
+      ]);
+  }
+
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    const completed = newTodos[index].isCompleted;
+  
+    newTodos[index].isCompleted = !completed;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Todo App</h1>
       </header>
+      <section>
+        <div className="todo-list">
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
+          <TodoForm addTodo={addTodo} />
+        </div>
+      </section>
     </div>
   );
 }

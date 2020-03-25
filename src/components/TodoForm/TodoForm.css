@@ -1,0 +1,12 @@
+.TodoForm-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.TodoForm-input {
+  background-color: #EBF5EE;
+  border-color: rgb(214, 170, 164);
+  border-radius: 4px;
+  height: 3em;
+  outline: none;
+}

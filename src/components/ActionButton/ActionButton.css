@@ -1,0 +1,18 @@
+.ActionButton {
+  color: white;
+  background-color: #78A1BB;
+  border-color: unset;
+  border-radius: 5px;
+  height: 3em;
+  width: 3em;
+  box-shadow: black;
+  cursor: pointer;
+  outline: 0;
+}
+
+.ActionButton:hover {
+  background-color: rgba(120, 161, 187, 0.9);
+  box-shadow: 0px 15px 20px rgba(120, 161, 187, 0.4);
+  transform: translateY(-1px);
+  transition: all 0.5s ease 0s;
+}
