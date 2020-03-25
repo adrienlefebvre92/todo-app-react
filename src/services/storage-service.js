@@ -1,5 +1,4 @@
 export default class StorageService {
-
   constructor(storageKey) {
     this.key = storageKey;
   }
@@ -11,5 +10,4 @@ export default class StorageService {
   get() {
     return JSON.parse(localStorage.getItem(this.key));
   }
-
 }

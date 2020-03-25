@@ -6,4 +6,4 @@ class TodoService extends StorageService {
   }
 }
 
-export default new TodoService ();
+export default new TodoService();

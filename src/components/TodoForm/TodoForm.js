@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import t from 'prop-types';
 
 import './TodoForm.css';
 
 const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
 
@@ -14,7 +14,7 @@ const TodoForm = ({ addTodo }) => {
     setValue('');
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
@@ -32,6 +32,10 @@ const TodoForm = ({ addTodo }) => {
       />
     </form>
   );
-}
+};
+
+TodoForm.propTypes = {
+  addTodo: t.func.isRequired,
+};
 
 export default TodoForm;
