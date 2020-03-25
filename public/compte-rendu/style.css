@@ -1,0 +1,28 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background: #78A1BB;
+  padding: 10px;
+}
+
+#content, #intro {
+  padding: 16px;
+  width: 50%;
+  margin: auto;
+  text-align: justify;
+  @media screen and (max-width: 768px){
+    width: 90%;
+  }
+}
+
+#content img {
+  margin: 8px auto;
+  max-width: 60%;
+  display: block;
+}

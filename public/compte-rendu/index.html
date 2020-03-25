@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>Compte - Rendu</title>
+  </head>
+  <body>
+    <header>
+      <h1>Todo React App</h1>
+      <div>
+        <h3>Sébastien Haentjens (SI)</h3>
+        <h3>Adrien Lefebvre (TEL)</h3>
+      </div>
+    </header>
+    <section id="intro">
+      <h2>Introduction</h2>
+      <p>
+        Nous avons développé une application web de todo list.
+        Concrètement vous pouvez : ajouter et supprimer des items, et les marquer comme "effectué".
+        Les valeurs de la Todo list sont stockées dans le local storage, permettant de sauvegarder
+        les items de la liste.
+      </p>
+    </section>
+    <section id="content">
+      <h2>React</h2>
+      <img
+        src="./screenshot.png"
+        alt="screenshot-app"
+      >
+      <p>
+        On a fait le choix de développer l'application en React pour ce projet d'application Web.
+        Sébastien étant plus habitué des sujets backends, et Adrien, plutôt à l'aise sur Vuejs, nous voulions
+        démarrer un projet simple mais codé proprement from scratch en React.
+        C'est pourquoi nous avons essayé de coller aux bonnes pratiques pour que notre application soit facilement
+        évolutive et que le code soit clair à prendre en main.
+      </p>
+      <p>
+        Nous avons découpé notre application en petits composants : Todo, TodoForm et ActionButton.
+        Ainsi, ils sont réutilisables partout dans le code, c'est pratique si on ajouter une nouvelle fonctionnalité
+        qui a besoin d'un bouton par exemple.
+        Les composants ont chacun leur propre feuille de style. Ce sont des éléments atomiques de l'application Web.
+      </p>
+
+      <p>
+        Encore un avantage aux composants, c'est qu'en séparant le code de la sorte, chaque composant est facilement testable.<br>
+        Nous avons installé le packet <i>eslint</i> qui est un linter. Le linter checke automatiquement que nous respectons les règles qu'on choisit partout
+        dans le code. Cela permet d'avoir un style homogène surtout avec Javascript qui permet plusieurs conventions différentes.
+      </p>
+      <p>
+        On utilise également un service <i>storage-service</i> pour le stockage. C'est en fait un object avec deux méthodes qu'on peut utiliser partout dans le code et hériter.
+        Cela rend l'application indépendante du
+        système de stockage et rend l'accès aux données facilement testable. Si un jour on veut sauvegarder directement dans une base de données ou envoyer cela à backend
+        ça ne changera pas le code de l'application mais seulement ce qui se cache derrière le service (store, localstorage, sessionstorage, etc, ...)<br>
+        Et surtout, il ne faudra changer le code uniquement dans le service de stockage en changeant les méthodes d'accès et d'écriture sur le stockage.
+        On utilise aussi le todo service qui hérite du storage service. Ainsi on peut pour des classes plus complexes hériter du storage-service et ajouter des
+        logiques métiers plus complexes avant de stocker ou de rechercher des valeurs : validation de champs, conversion de valeurs, etc.
+      </p>
+    </section>
+    <section id="content">
+      <h2>Pour aller plus loin...</h2>
+      <p>
+        Si on pouvait continuer cette application plus loin on commencerait par utiliser un backend pour s'authentifer.
+        Ainsi on peut avoir accès à notre todo-list sur plusieurs devices avec des données synchronisées.
+        On pourrait ajouter la possibilité d'ajouter des dates de rappels et notification.
+        On pourrait aussi d'un point de vue plus techniques écrire des tests pour tester nos composants et services.
+      </p>
+    </section>
+  </body>
+</html>
